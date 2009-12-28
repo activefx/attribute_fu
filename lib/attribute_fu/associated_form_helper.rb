@@ -88,7 +88,7 @@ module AttributeFu
       form_builder     = self # because the value of self changes in the block
       
       function = "if (typeof #{variable} == 'undefined') #{variable} = 0; 
-                    $(#{container}).append($.template("+[self.render_associated_form(object, :fields_for => { :javascript => true }, :partial => partial)].flatten.first.to_json+"), { number: --#{variable}});"
+                    $(#{container}).append($.template("+h([self.render_associated_form(object, :fields_for => { :javascript => true }, :partial => partial)].flatten.first.to_json)+"), { number: --#{variable}});"
                     
       @template.link_to_function(name, function, opts)
     end
